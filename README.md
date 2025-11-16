@@ -3,6 +3,15 @@
 Automatically collects news articles and generates concise summaries.
 (This project was drafted end-to-end in under 5 minutes using an early prototype of my EIDOS system.)
 
+📂 Project Structure
+├── crawler
+    |--news_crawler.py      # Collects article links + parses content (BeautifulSoup)
+├── llm
+    |--llm_handler.py       # OpenAI API interface for summary/keywords/classification
+├── utils
+    |--exporters.py         # Optional utilities for saving results
+├── main_window.py       # Simple GUI launcher (optional)
+
 
 
 <Overview>
