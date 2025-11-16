@@ -1,77 +1,64 @@
-# EIDOS-NewsCrawler
-A fully autonomous news &amp; trend crawler built by the EIDOS framework.  Collects articles, extracts key insights, and generates daily summaries.
+# News & Trend Summary Crawler
+
+Automatically collects news articles and generates concise summaries.
+(This project was drafted end-to-end in under 5 minutes using an early prototype of my EIDOS system.)
 
 
--EIDOS News Scout
 
-A lightweight crawler that collects news articles and trending topics from multiple sources and generates concise summaries.
+<Overview>
 
-This tool was created in just five minutes through an automated workflow in EIDOS, a framework I’ve been developing for building self-improving software systems.
-Although the implementation was generated quickly, the structure is intentionally simple, readable, and easy to extend.
+This repository contains a simple automation tool that collects news articles from multiple sources, extracts their content, and uses an LLM to generate:
+
+Summaries
+
+Keywords
+
+Basic topic classification
+
+It’s not meant to be a polished, production-ready framework —
+rather, it was created as a quick experimental test for the EIDOS architecture.
+You can easily extend it to additional websites or formats.
 
 
 
 <Features>
 
-Multi-source crawling
-Crawls news sites or trend pages (RSS or HTML) depending on configuration.
-
-Automatic content extraction
-Removes ads, boilerplate text, and extracts only the main article section.
-
-Keyword & topic detection
-Identifies the core topics from each article using lightweight techniques.
-
-Short summary generation
-Produces clear and compact summaries for quick review.
-
-Daily digest mode
-Generates a consolidated summary of all crawled content for the day.
-
-Configurable pipeline
-URLs, depth, summary length, and output format can all be changed easily.
+Asynchronous crawling using aiohttp
+Article parsing with BeautifulSoup
+LLM-powered processing
+Article summarization
+Keyword extraction
+Category classification
+Duplicate filtering (title & URL)
+Modular code structure, easy to modify or expand
 
 
 
 
-<Usage>
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the crawler
-python src/crawler.py
-
-
-Configuration can be updated in config.py depending on the target news sources or desired summary length.
+< Requirements>
+Python 3.10+
+Install dependencies:
+aiohttp
+beautifulsoup4
+openai>=1.0.0
 
 
 
+<OpenAI API Key>
 
+This project requires an OpenAI API key for the LLM functions.
+Set it as an environment variable:
 
-<Goal of This Tool>
+macOS/Linux
+export OPENAI_API_KEY="YOUR_KEY_HERE"
 
-This repository isn’t meant to be a large-scale production crawler.
-It’s meant to demonstrate how a simple, working tool can be produced rapidly through iterative software workflows.
-
-EIDOS handled:
-
-pipeline design
-
-scaffolding
-
-implementation
-
-cleanup
-
-formatting
-
-My role was simply verifying the logic and running the final script.
+Windows PowerShell
+setx OPENAI_API_KEY "YOUR_KEY_HERE"
 
 
 
 
 <Notes>
-
-This project will continue to evolve as EIDOS gains new capabilities.
-
-Contributions, suggestions, and improvements are welcome
+The CSS selectors used for scraping are minimal and may need adjustment depending on the news source.
+The crawler includes only a few demo sites — feel free to add your own.
+Since this was created quickly as part of an internal EIDOS experiment, you may want to refactor or extend it for long-term use.
